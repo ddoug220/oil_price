@@ -1,14 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
-      Ionic Blank
+      Commodity Price Tracker
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addCommodity()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
+<ion-content>
+
+<div class="message">
+
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    The
+    <strong>Commodities Provider Application </strong> allows users to keep track of the approximate value of energy commoditites
+    such as crude oil and natural gas.</p>
+
+  <p>Currently, the Application only provides commodities value for Brent Crude Oil for the last five days. I will be working
+    on expanding these features to allow users to select the commodity they are interested in and set a date range for results</p>
+
+</div>
+
+<h1 class="commodity">Brent Crude Oil</h1>
+
+  <ion-list *ngFor="let price of prices; let i=index">
+<ion-item *ngIf="i<5">
+<ion-item class="holding">
+<p>Date {{price[0]}}</p>
+<h2 class="value">Value ${{price[1]}}</h2>
+</ion-item>
+</ion-item>
+  </ion-list> 
+
 </ion-content>
+
+<ion-footer padding>
+
+  <p>
+    <strong>Disclaimer:</strong> Do not use this application to make investment decisions. Displayed prices may not reflect actual
+    prices.</p>
+
+</ion-footer>
+
+
